@@ -32,13 +32,18 @@ export default function Dashboard() {
     <>
       <Navbar user={user} onLogout={handleLogout} />
 
-      <div className="max-w-6xl mx-auto mt-10 px-4">
-        {/* Form and Expense List */}
-        <div className="bg-gray-50 p-6 rounded-2xl shadow-xl">
+      <div className="max-w-6xl mx-auto mt-10 px-4 flex flex-col-reverse lg:flex-col gap-6">
+        {/* Expense Form at bottom */}
+        <div className="bg-gray-50 p-6 rounded-2xl shadow-xl order-2 lg:order-2">
           <ExpenseForm refresh={getExpenses} />
+        </div>
+
+        {/* Expense List at top */}
+        <div className="bg-white p-6 rounded-2xl shadow-xl order-1 lg:order-1">
           <ExpenseList data={expenses} refresh={getExpenses} />
         </div>
       </div>
     </>
   );
 }
+
